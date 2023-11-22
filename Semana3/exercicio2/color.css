@@ -1,0 +1,53 @@
+#amarelo{
+    color: yellow;
+}
+
+#vermelho{
+    color: red;
+}
+
+#azul{
+    color: blue;
+}
+
+#marron{
+    color: maroon;
+}
+
+#violeta{
+    color: blueviolet;
+}
+
+div{
+    border: 200px solid black;
+    width: 200px;
+    height: 200px;
+}
+
+img{
+    width: 120px;
+    height: 120px;
+}
+#amarelo{
+    border: solid black;
+    padding: 5px 30px;
+}
+
+#vermelho{
+    border: solid black;
+    padding: 5px 30px;
+}
+
+#azul{
+    border: solid black;
+    padding: 5px 30px;
+}
+
+#marron{
+    border: solid black;
+    padding: 5px 30px;
+}
+#violeta{
+    border: solid black;
+    padding: 5px 30px;
+}
