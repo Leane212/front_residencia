@@ -1,0 +1,20 @@
+#caixa{
+    
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border: solid;
+    background-color: blueviolet;
+    left: 10px;
+}
+
+#caixa2{
+    background: lightblue;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 10px;
+    top: 100px;
+}
+
