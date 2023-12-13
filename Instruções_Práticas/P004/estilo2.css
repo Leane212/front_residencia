@@ -1,0 +1,99 @@
+body{
+  font-family: 'Hedvig Letters Serif', serif;
+  background-color: #FFF;
+}
+
+.container-destinos{
+  display: flex;
+  gap: 10px 20px;
+  
+}
+
+
+
+.roteiros-viagens img{
+  width: 170px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.roteiros-viagens{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #d2c2eb;
+  max-width: 200px;
+  flex-grow: 1;
+}
+
+
+
+.roteiro-destino{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #8c5bce;
+  margin: 10px 5px;
+}
+
+.roteiro-incluso{
+  font-size: 1rem;
+  color: #8c5bce;
+  margin: 10px 5px;
+  list-style-type:square;
+}
+
+.roteiro-preco{
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #8c5bce;
+  margin-top: 10px;
+}
+
+.roteiro-obs{
+  font-size: 0.6rem;
+  color: #8c5bce;
+}
+
+.roteiro-parcelamento{
+  font-size: 0.6rem;
+  color: #8c5bce;
+}
+
+.roteiro-comprar{
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  margin-top: 15px;
+  border: none;
+  border-radius: 7px;
+  padding: 10px;
+  background-color: #9cee37;
+  cursor: pointer;
+  transition-duration: 0.8s;
+  box-shadow: 0 0 5px 5px #446917;
+}
+
+
+.roteiro-comprar:active {
+  transform: scale(0.6);
+}
+
+.roteiro-comprar:hover{
+  background-color: #9cee37;
+  cursor: pointer;
+  background-color: #2e4d08;
+  color: rgb(255, 255, 255);
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+@media (max-width: 1200px){
+  .container-destinos{
+      flex-direction: column;
+  }
+}
