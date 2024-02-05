@@ -1,0 +1,6 @@
+.divisao2{
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    grid-gap: 5px;  
+    margin-top: 5px;
+}
