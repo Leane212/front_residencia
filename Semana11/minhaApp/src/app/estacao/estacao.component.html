@@ -1,0 +1,36 @@
+<form [formGroup]="exemploForm" (ngSubmit)="onSubmit()">
+    <label for="nome">Digite o nome da estação climática:</label>
+    <input 
+        formControlName="nome"
+        name="nome"> 
+    <span *ngIf="!exemploForm.get('nome')?.valid && exemploForm.get('nome')?.touched">
+        O nome não pode ser nulo!
+    </span>
+    <br>
+    
+    <label for="email">E-Mail para notificação: </label>
+    <input 
+        type="email"
+        id="email"
+        name="email" 
+        formControlName="email">
+        <br>
+        
+    <label for="localizacao">Localização:</label>
+    <input 
+        formControlName="localizacao"
+        name="localizacao"> <br>
+        <br>
+
+    <label for="status">Status:</label>
+    
+    <select id="status" formControlName="status" >
+        <option value="naoInstalada">Não Instalada</option>
+        <option value="Instalada">Instalada</option>
+        <option value="operante">Operante</option>
+    </select>
+   
+    
+    
+    <button type="submit">Enviar</button>   
+</form>
