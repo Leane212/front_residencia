@@ -1,0 +1,16 @@
+<form [formGroup]="exemploForm" (ngSubmit)="onSubmit()">
+    <label for="email">Email:</label>
+    <input 
+        formControlName="email"
+        name="email"> <br>
+    
+    <label for="senha">senha:</label>
+    <input 
+        type="password"
+        formControlName="senha"
+        name="capacidade">
+    <br>
+    
+    <button type="submit">Enviar</button>   
+</form>
+
