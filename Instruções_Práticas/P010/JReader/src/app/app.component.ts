@@ -8,54 +8,37 @@ import { LeituraService } from './leitura.service';
 })
 export class AppComponent {
   title = 'JReader';
-  constructor(private leituraService: LeituraService) {
-    this.setupPermissaoListener();
-  }
-
-  setupPermissaoListener() {
+  constructor(private leituraService : LeituraService){
     this.leituraService.permissao$.subscribe(permissao => {
-      const addButton = document.getElementById("add") as HTMLButtonElement;
-      if (addButton) {
-        addButton.disabled = permissao;
-      }
+      (<HTMLButtonElement>document.getElementById("add"))!.disabled = permissao;
     });
   }
-
-  async getArquivo() {
-    const fileInput = document.getElementById('arqv') as HTMLInputElement;
-    const file = fileInput.files?.[0];
-
-    if (!file) {
-      console.warn("Nenhum arquivo selecionado.");
-      return;
-    }
-
-    try {
-      const fileContents = await this.lerArquivo(file);
-      this.leituraService.setJson(JSON.parse(fileContents));
-    } catch (error) {
-      console.warn("Erro ao ler o arquivo:", error);
-    }
-  }
-
-  lerArquivo(file: File): Promise<string> {
+ 
+  lerArquivo(fileTobeRead: File, fileReader: FileReader){
     return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-
       fileReader.onerror = () => {
         fileReader.abort();
         reject(new DOMException("Problem parsing input file."));
       };
-
+  
       fileReader.onload = () => {
-        resolve(fileReader.result as string);
+        resolve(fileReader.result);
       };
-
-      fileReader.readAsText(file);
+      fileReader.readAsText(fileTobeRead);
     });
+  };
+  async getArquivo(){
+    var fileSelected = (<HTMLInputElement>document.getElementById('arqv'));
+    var fileTobeRead = fileSelected.files![0];
+    var fileReader = new FileReader();
+    try {
+      const fileContents = await this.lerArquivo(fileTobeRead, fileReader) ;
+      this.leituraService.setJson(JSON.parse(<string>fileContents));
+    } catch (e:any) {
+      console.warn(e.message);
+    }
   }
-
-  click() {
+  click(){
     this.leituraService.clicou(true);
   }
   
