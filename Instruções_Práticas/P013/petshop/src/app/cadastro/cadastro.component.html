@@ -1,0 +1,11 @@
+<form formGroup="formCadastro" (ngSubmit)="adicionarBilhete()" class="cadastro">
+    <input type="text" formControlName="nomePaciente" placeholder="Nome Paciente">
+    <input type="text" formControlName="nomeTutor" placeholder="Nome Tutor">
+    <input type="text" formControlName="endereco" placeholder="Endereço ">
+    <input type="email" formControlName="email" placeholder="Email">
+    <input type="date" formControlName="data" placeholder="Data da consulta">
+    <input type="date" formControlName="dataNascimento" placeholder="Data de nascimento do paciente">
+    <input type="text" formControlName="raca" placeholder="Raça">
+    <textarea formControlName="mensagem" placeholder="Detalhe da consulta"></textarea>
+  <button type="submit">Enviar</button>
+</form>
