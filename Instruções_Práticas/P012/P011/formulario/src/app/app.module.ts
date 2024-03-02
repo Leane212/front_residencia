@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OrdemServicoFormComponent } from './ordem-servico-form/ordem-servico-form.component';
+import { FormUsuarioComponent } from './form-usuario/form-usuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PassagemAreaFormComponent } from './passagem-area-form/passagem-area-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrdemServicoFormComponent,
-    PassagemAreaFormComponent
+    FormUsuarioComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    FormsModule 
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
