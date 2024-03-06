@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { Consulta } from './petshop.model';
 
@@ -7,7 +7,7 @@ import { Consulta } from './petshop.model';
 @Injectable({
   providedIn: 'root'
 })
-export class DataBaseService {
+export class DataBaseService implements OnInit{
 
   loadedConsulta: Consulta[] = [];
 
@@ -19,19 +19,21 @@ export class DataBaseService {
 
   } 
 
-  addTicket(ticketData: {  NomePassageiro: string, 
-                                numeroVoo: string, 
-                                dataPartida: string, 
-                                dataChegada: string, 
-                                aeroportoPartida: string, 
-                                aeroportoChegada: string }) {
-
-    this.http.post(
-      'https://residencia-35ad6-default-rtdb.firebaseio.com/posts.json',
-       ticketData)
-      .subscribe((responseData: any) => {
-        console.log(responseData);
-      });
+  addConsulta(consultaData: {nomePaciente: string, 
+                            nomeTutor: string, 
+                            endereco: string, 
+                            email: string, 
+                            data: string,
+                            dataNascimento: string, 
+                            raca: string,
+                            mensagem: string }){
+  this.http.post(
+               'https://petshop-e7ed5-default-rtdb.firebaseio.com/posts.json',
+               consultaData
+       )
+         .subscribe((responseData) => {
+      console.log(responseData);
+   });
   }
 
   addMensagem(msgData: {  nome: string, 
@@ -39,7 +41,7 @@ export class DataBaseService {
                           mensagem: string 
                         }) {
 
-        this.http.post('https://residencia-35ad6-default-rtdb.firebaseio.com/mensagens.json',msgData)
+        this.http.post('https://petshop-e7ed5-default-rtdb.firebaseio.com/mensagens.json',msgData)
         .subscribe(responseData => {
             console.log(responseData);
         });
@@ -47,11 +49,7 @@ export class DataBaseService {
 
 
   getTickets() {
-    //generics da interface Ticket
-    //vem do firebase nesse formato
-    //ahsduiashuhui:Object
-    //dasdasdasdasd:Object
-    return this.http.get< {[key:string]: Consulta}>('https://residencia-35ad6-default-rtdb.firebaseio.com/posts.json',
+    return this.http.get< {[key:string]: Consulta}>('https://petshop-e7ed5-default-rtdb.firebaseio.com/posts.json',
       {
         params: new HttpParams().set('print', 'pretty')
       }
@@ -69,13 +67,13 @@ export class DataBaseService {
       )
     );
   }
-
+  
   apagarTodosTickets() {
-    return this.http.delete('https://residencia-35ad6-default-rtdb.firebaseio.com/posts.json');
+    return this.http.delete('https://petshop-e7ed5-default-rtdb.firebaseio.com/posts.json');
   }
 
   getTicket2() {
-    return this.http.get('https://residencia-35ad6-default-rtdb.firebaseio.com/posts.json',
+    return this.http.get('https://petshop-e7ed5-default-rtdb.firebaseio.com/posts.json',
     {
       params: new HttpParams().set('print', 'pretty')
     }
@@ -83,17 +81,19 @@ export class DataBaseService {
   }
 
   getTicket(id:string) {
-    return this.http.get<Consulta>(`https://residencia-35ad6-default-rtdb.firebaseio.com/posts/${id}.json`);
+    return this.http.get<Consulta>(`https://petshop-e7ed5-default-rtdb.firebaseio.com/posts/${id}.json`);
   }
 
-  editarTicket(id:string, ticketData: {   NomePassageiro: string, 
-                                          numeroVoo: string, 
-                                          dataPartida: string, 
-                                          dataChegada: string, 
-                                          aeroportoPartida: string, 
-                                          aeroportoChegada: string 
-                                      }
-                ) {
-    return this.http.put(`https://residencia-35ad6-default-rtdb.firebaseio.com/posts/${id}.json`, ticketData, {observe: 'response'});
+  editarTicket(id:string, consultaData: { nomePaciente: string, 
+                                          nomeTutor: string, 
+                                          endereco: string, 
+                                          email: string,
+                                          data: string, 
+                                          dataNascimento: string, 
+                                          raca: string ,
+                                          mensagem: string;
+                                      })
+  {
+    return this.http.put(`https://petshop-e7ed5-default-rtdb.firebaseio.com/posts/${id}.json`, consultaData, {observe: 'response'});
   }
 }

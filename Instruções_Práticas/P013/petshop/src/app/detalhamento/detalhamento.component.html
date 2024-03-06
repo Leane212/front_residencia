@@ -1,1 +1,14 @@
-<p>detalhamento works!</p>
+<tbody>
+    <tr *ngFor="let ticket of loadedConsulta">
+        <td>{{ ticket.nomePaciente }}</td>
+        <td>{{ ticket.nomeTutor }}</td>
+        <td>{{ ticket.endereco }}</td>
+        <td>{{ ticket.email }}</td>
+        <td>{{ ticket.data }}</td>
+        <td>{{ ticket.dataNascimento }}</td>
+        <td>{{ ticket.raca }}</td>
+        <td>{{ ticket.mensagem }}</td>
+        <td colspan="1">{{ ticket.nomePaciente }}</td>
+        <td><button type="button" class="btnEditar" routerLink="/editarTicket/{{ticket.id}}">Editar</button></td>
+      </tr>
+</tbody>

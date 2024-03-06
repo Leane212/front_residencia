@@ -1,9 +1,11 @@
 export interface Consulta {
-    NomePassageiro: string;
-    numeroVoo: string;
-    dataPartida: string;
-    dataChegada: string;
-    aeroportoPartida: string;
-    aeroportoChegada: string;
+    nomePaciente: string;
+    nomeTutor: string;
+    endereco: string;
+    email: string;
+    data: string;
+    dataNascimento: string;
+    raca: string;
+    mensagem: string;
     id?: string;
 }

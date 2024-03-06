@@ -21,6 +21,7 @@ export class EditarComponent {
       nomeTutor: ['', Validators.required],
       endereco: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
+      data: ['', Validators.required],
       dataNascimento: ['', Validators.required],
       raca: ['', Validators.required],
       mensagem: ['', Validators.required]
@@ -38,7 +39,7 @@ export class EditarComponent {
   }
 
   salvarTicket() {
-    console.log("salvar ticket: " + this.formCadastro.value);
+    console.log("salvar: " + this.formCadastro.value);
     this.bancoService.editarTicket(this.id, this.formCadastro.value).subscribe(responseData => {
       if(responseData.status == 200){
         this.editadoSucesso = true;
@@ -49,7 +50,7 @@ export class EditarComponent {
 
   rediracionaPrincipal(){
     setTimeout(() => {
-     this.rotas.navigate(['listarTicket']);
+     this.rotas.navigate(['listar']);
     }, 2000);
     
   }

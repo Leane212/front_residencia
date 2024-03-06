@@ -1,4 +1,4 @@
-<form formGroup="formCadastro" (ngSubmit)="adicionarBilhete()" class="cadastro">
+<form [formGroup]="formCadastro" (ngSubmit)="adicionarBilhete()" class="cadastro">
     <input type="text" formControlName="nomePaciente" placeholder="Nome Paciente">
     <input type="text" formControlName="nomeTutor" placeholder="Nome Tutor">
     <input type="text" formControlName="endereco" placeholder="Endereço ">
